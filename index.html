@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="center">
+
+        <h3>Calculato<span>&Pi;</span></h3>
+        <div class="expression">
+            <input type="text" name="expression" id="idexpression" placeholder="000" readonly>
+        </div>
+        <div class="buttons">
+            <button onclick="clean()" class="espChar">CE</button>
+            <button onclick="backspace()" class="del espChar" ><-</button>
+            <button onclick="displayInArea('*')" class="espChar">*</button>
+            <button onclick="displayInArea('-')" class="espChar">-</button>
+            <button onclick="displayInArea('7')">7</button>
+            <button onclick="displayInArea('8')">8</button>
+            <button onclick="displayInArea('9')">9</button>
+            <button onclick="displayInArea('+')" class="espChar">+</button>
+            <button onclick="displayInArea('4')">4</button>
+            <button onclick="displayInArea('5')">5</button>
+            <button onclick="displayInArea('6')">6</button>
+            <button onclick="displayInArea(',')" class="espChar">,</button>
+            <button onclick="displayInArea('1')">1</button>
+            <button onclick="displayInArea('2')">2</button>
+            <button onclick="displayInArea('3')">3</button>
+            <button onclick="displayInArea('/')" class="espChar">/</button>
+            <button class="btn0"  onclick="displayInArea('0')">0</button>
+            <button onclick="calculate()" class="espChar enter">=</button>
+
+            
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
