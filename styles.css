@@ -14,7 +14,7 @@ body{
 }
 
 .center{
-    width: 313px;
+    width: 330px;
     background-color: #3f3f3f;
     margin: auto;
     margin-top: 200px;
@@ -27,7 +27,8 @@ body{
 
 h3{
     color: white;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
+    user-select: none;
 }
 
 h3 span{
@@ -51,6 +52,12 @@ h3 span{
     background-color: #b5babb;
     font-family: 'Calculator';
     color: #3f4242;
+    cursor: default;
+}
+
+.expression input::selection{
+    background-color: #f14646;
+    color: white;
 }
 
 .expression input:active, input:focus{
@@ -60,18 +67,21 @@ h3 span{
 
 .buttons{
     display: flex;
-    gap: 0.75rem;
+    gap: calc((335px - (4*60px)) / 7 );
     flex-wrap: wrap;
 }
 
 .buttons button{
-    width: 59.75px;
-    height: 59px;
+    width: 60px;
+    height: 60px;
     font-size: 1.3rem;
     border: none;
     border-radius: 8px;
     background-color: #666869;
     color: white;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 .buttons button:hover{
@@ -96,6 +106,18 @@ a, a:visited{
     background-color: #fd7171 !important;
 }
 
+.espChar:hover{
+    background-color: #ff8888 !important;
+}
+
 .enter{
     background-color: #ff2b2b !important;
+}
+
+.enter:hover{
+    background-color: #ff4343 !important;
+}
+
+.moreChar{
+    font-size: 1.6rem !important;
 }
