@@ -1,5 +1,3 @@
-Number.prototype.toLocaleString("pt-br");
-
 const display = document.querySelector("#idexpression");
 
 const checkLength = (value) => {
@@ -15,7 +13,7 @@ const displayInArea = (value) => {
 
   display.value += value;
 
-  let especialChar = ["*", "-", "+", "/", ","];
+  let especialChar = ["*", "-", "+", "/", "."];
 
   especialChar.map((item) => {
     if (display.value === item) {
@@ -47,25 +45,32 @@ const clean = () => {
 const calculate = () => {
   let value = display.value;
 
-  let val = eval(value);
+  try{
+    let val = eval(value);
 
-  if (value && val !== "Infinity") {
-    if (val.length > 21) {
-      display.value = val.toExponential();
+    if (value) {
 
-      checkLength(display.value);
-    } else {
-      display.value = val;
-
-      checkLength(display.value);
-    }
-  } else if (val === "Infinity") {
-    display.setAttribute("placeholder", "Infinity");
-
-    checkLength(display.value);
-  } else {
+        if (val.length > 21) {
+          display.value = val.toExponential();
+    
+          checkLength(display.value);
+        } else {
+          display.value = val;
+    
+          checkLength(display.value);
+        }
+    
+      } else if (val === Infinity) {
+        display.setAttribute("placeholder", "Infinity");
+    
+        checkLength(display.value);
+      } else {
+        display.setAttribute("placeholder", "Error");
+    
+        checkLength(display.value);
+      }
+  } catch (e) {
+    display.value = '';
     display.setAttribute("placeholder", "Error");
-
-    checkLength(display.value);
   }
 };
