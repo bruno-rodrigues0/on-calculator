@@ -37,6 +37,7 @@ const displayInArea = (value: string) => {
 const backspace = () => {
     let value: string = display.value;
 
+    // Remove ultimo elemento da string e atribui o valor ao display
     value = value.slice(0, -1);
     display.value = value;
     checkLength();
@@ -62,6 +63,8 @@ const calculate = () => {
 
             // Tratamento de números muito grandes
             if(val.length > 21) {
+
+                // Transforma o numero em uma potencia de 10
                 display.value = numVal.toExponential();
 
                 checkLength();
@@ -73,6 +76,7 @@ const calculate = () => {
 
         // Tratamento de valores infinitos
         } else if(numVal === Infinity){
+            // Remove o valor do display e seta o placeholder como Infinity
             display.value = '';
             display.setAttribute('placeholder', 'Infinity');
 
