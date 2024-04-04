@@ -1,5 +1,3 @@
-@charset "utf-8";
-
 @font-face {
     font-family: 'JetBrains Mono';
     src: url('./fonts/JETBRAINSMONO-REGULAR.TTF') format('truetype') ;
@@ -15,12 +13,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
     font-weight: bold;
 }
 
 body{
     background-color: #2f2f2f;
+    display: flex;
+    justify-content: center;
 }
 
 /* container q possui a calculadora e o botao de showdown */
@@ -30,7 +29,6 @@ body{
     justify-content: center;
     flex-flow: column;
     position: absolute;
-    left: 40%;
     top: 0;
     transition: .6s ease-in-out;
 }
@@ -43,6 +41,7 @@ body{
     padding: 1.5rem;
     border-radius: 8px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
     box-shadow: 1px 1px 5px rgb(39, 39, 39);
@@ -62,16 +61,12 @@ h3 span{
     font-size: 1.5rem;
 }
 
-.expression{
-    width: 100%;
-}
-
 /* input display da calculadora */
 .expression input{
     width: 100%;
     height: 60px;
     border-radius: 8px;
-    padding: 1rem;
+    padding-inline: 1rem;
     font-size: 2.7rem;
     text-align: end;
     border: none;
@@ -82,21 +77,20 @@ h3 span{
 }
 
 /* cor da seleção */
-.expression input::selection{
+.expression input::selection, .expression input::-moz-selection{
     background-color: #f14646;
     color: white;
 }
 
 /* remove borda ao dar foco no input  */
-.expression input:active, input:focus{
-    outline: none;
-    border: none;
-}
+.expression input:active, input:focus{outline: none;}
 
 .buttons{
     display: flex;
+    justify-content: center;
     gap: calc((335px - (4*60px)) / 7 );
     flex-wrap: wrap;
+    width: 282px;
 }
 
 .buttons button{
@@ -111,47 +105,29 @@ h3 span{
     user-select: none;
     -moz-user-select: none;
     box-shadow: 1px 1px 10px rgb(46, 46, 46);
+    flex-grow: 1;
 }
 
-.buttons button:hover{
-    background-color: #717576;
-}
+.buttons button:hover{background-color: #717576;}
 
 a, a:visited{
     color: black;
     text-decoration: none;
 }
 
-.btn0{
-    flex-grow: 1;
-}
-
 /* fonte do botao de backspace  */
-.del{
-    font-family: 'JetBrains Mono';
-}
-
+.del{font-family: 'JetBrains Mono';}
 
 /* caracteres especiais  */
-.espChar{
-    background-color: #fd7171 !important;
-}
+.espChar{background-color: #fd7171 !important;}
 
-.espChar:hover{
-    background-color: #ff8888 !important;
-}
+.espChar:hover{background-color: #ff8888 !important;}
 
-.enter{
-    background-color: #ff2b2b !important;
-}
+.enter{background-color: #ff2b2b !important;}
 
-.enter:hover{
-    background-color: #ff4343 !important;
-}
+.enter:hover{background-color: #ff4343 !important;}
 
-.moreChar{
-    font-size: 1.6rem !important;
-}
+.moreChar{font-size: 1.6rem !important;}
 
 .showdown{
     padding: .5rem 1rem;
