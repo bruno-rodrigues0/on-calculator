@@ -77,13 +77,15 @@ const calculate = () => {
             display.setAttribute('placeholder', 'Infinity');
 
             checkLength();
+
+        // Tratamento de erros simples
         } else {
             display.setAttribute('placeholder', 'Error');
 
             checkLength();
         }
 
-    // Tratamento de erros
+    // Tratamento de erros pesados
     } catch (error) {
         display.value = '';
         display.setAttribute('placeholder', 'Error');
