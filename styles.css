@@ -9,6 +9,7 @@
     src: url('./fonts/CALCULATOR.TTF') format('truetype');
 }
 
+/* reset global */
 *{
     margin: 0;
     padding: 0;
@@ -22,17 +23,30 @@ body{
     background-color: #2f2f2f;
 }
 
+/* container q possui a calculadora e o botao de showdown */
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: absolute;
+    left: 40%;
+    top: 0;
+    transition: .6s ease-in-out;
+}
+
+
+/* estilos do wraper da calculadora  */
 .center{
     width: 330px;
     background-color: #3f3f3f;
-    margin: auto;
-    margin-top: 200px;
     padding: 1.5rem;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     box-shadow: 1px 1px 5px rgb(39, 39, 39);
+    z-index: 1;
 }
 
 h3{
@@ -52,6 +66,7 @@ h3 span{
     width: 100%;
 }
 
+/* input display da calculadora */
 .expression input{
     width: 100%;
     height: 60px;
@@ -66,11 +81,13 @@ h3 span{
     cursor: default;
 }
 
+/* cor da seleção */
 .expression input::selection{
     background-color: #f14646;
     color: white;
 }
 
+/* remove borda ao dar foco no input  */
 .expression input:active, input:focus{
     outline: none;
     border: none;
@@ -109,11 +126,13 @@ a, a:visited{
     flex-grow: 1;
 }
 
-
+/* fonte do botao de backspace  */
 .del{
     font-family: 'JetBrains Mono';
 }
 
+
+/* caracteres especiais  */
 .espChar{
     background-color: #fd7171 !important;
 }
@@ -130,6 +149,22 @@ a, a:visited{
     background-color: #ff4343 !important;
 }
 
-.moreChar{
-    font-size: 1.6rem !important;
+.showdown{
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 1px 1px 5px rgb(39, 39, 39);
+    z-index: 0;
+    background-color: #858585;
+    cursor: pointer;
 }
+
+/* estilos das animações  */
+.arrow{
+    color: white;
+    transition: .6s ease-in-out;
+}
+
+.rotation{transform: rotate(180deg)}
+
+.position{top: -522px}
