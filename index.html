@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- container de todo o conteudo -->
     <div class="container">
+
+        <!-- container da calculadora  -->
         <div class="center">
             <h3>Calculato<span>&Pi;</span></h3>
             <div class="expression">
                 <input type="text" name="expression" id="idexpression" placeholder="000" readonly>
             </div>
+
+            <!-- container dos botoes -->
             <div class="buttons">
                 <button onclick="clean()" class="espChar">CE</button>
                 <button onclick="backspace()" class="del espChar" ><-</button>
@@ -34,10 +39,18 @@
                 <button onclick="calculate()" class="espChar enter">=</button>
             </div>
         </div>
+
+        <!-- botao de show da calculadora -->
+        <button onclick="showdown()"  class="showdown"><i class="fa-solid fa-chevron-up arrow"></i></button>
     </div>
 
+    <!-- script padrão -->
     <script src="script.js"></script>
 
+    <!-- script do font awesome -->
+    <script src="https://kit.fontawesome.com/19ad99d8f1.js" crossorigin="anonymous"></script>
+
+    <!-- script do vercel analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>

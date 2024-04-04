@@ -94,3 +94,10 @@ const calculate = () => {
   }
 };
 
+const showdown = () => {
+  const container = document.querySelector('.container');
+  const arrow = document.querySelector('.arrow');
+
+  arrow.classList.toggle('rotation');
+  container.classList.toggle("position");
+}
