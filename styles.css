@@ -149,6 +149,10 @@ a, a:visited{
     background-color: #ff4343 !important;
 }
 
+.moreChar{
+    font-size: 1.6rem !important;
+}
+
 .showdown{
     padding: .5rem 1rem;
     border: none;
