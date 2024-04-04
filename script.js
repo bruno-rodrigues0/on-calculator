@@ -94,10 +94,12 @@ const calculate = () => {
   }
 };
 
+// função das animações de showdown
 const showdown = () => {
   const container = document.querySelector('.container');
   const arrow = document.querySelector('.arrow');
 
+  // addiciona as classes a cada elemento
   arrow.classList.toggle('rotation');
   container.classList.toggle("position");
 }
