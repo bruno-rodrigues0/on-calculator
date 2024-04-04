@@ -1,6 +1,9 @@
 const display = document.querySelector('#idexpression') as HTMLInputElement;
 
-const checkLength = (value: string) => {
+// Checa o tamanho da expressão e faz a coversão do tamanho da fonte
+const checkLength = () => {
+    let value: string = display.value; 
+
     if(value.length > 13) {
         display.classList.add('moreChar');
     } else {
@@ -8,11 +11,16 @@ const checkLength = (value: string) => {
     }
 }
 
+// Adiciona os valores digitados no display
 const displayInArea = (value: string) => {
-    display?.setAttribute('placeholder', '000');
 
+    // Valor padrão do placeholder
+    display.setAttribute('placeholder', '000');
+
+    // Display recebe valor digitado
     display.value += value;
 
+    // Impede o uso de operadores e caracteres especiais no inicio da expressão
     let especialChar: [...string[]] = ["*", "-", "+", "/", "."];
 
     especialChar.map(item => {
@@ -21,59 +29,68 @@ const displayInArea = (value: string) => {
         }
     });
 
-    checkLength(display.value);
+    // Sempre chamada ao fim de funções para formatar o tamanho da fonte
+    checkLength();
 }
 
+// Apaga o ultimo elemento da expressao
 const backspace = () => {
     let value: string = display.value;
 
     value = value.slice(0, -1);
     display.value = value;
-    checkLength(display.value);
+    checkLength();
 }
 
+// Limpa o display
 const clean = () => {
     display.value = '';
 
-    checkLength(display.value);
+    checkLength();
 }
 
-
+// Faz o calculo ao clicar no botao de igual
 const calculate = () => {
     let value: string = display.value;
 
+    // Faz uma tentativa de calcular a operação
     try{
-        let val: string = eval(value);
-        let numVal: number = Number(val);
-
+        let val: string = eval(value); // Resultado da operação em string
+        let numVal: number = Number(val); // Mesmo resultado em number
+        
         if (val && numVal !== Infinity) {
+
+            // Tratamento de números muito grandes
             if(val.length > 21) {
                 display.value = numVal.toExponential();
 
-                checkLength(display.value);
+                checkLength();
             } else {
                 display.value = val;
 
-                checkLength(display.value);
+                checkLength();
             }
+
+        // Tratamento de valores infinitos
         } else if(numVal === Infinity){
             display.value = '';
             display.setAttribute('placeholder', 'Infinity');
 
-            checkLength(display.value);
+            checkLength();
         } else {
             display.setAttribute('placeholder', 'Error');
 
-            checkLength(display.value);
+            checkLength();
         }
 
-
+    // Tratamento de erros
     } catch (error) {
         display.value = '';
         display.setAttribute('placeholder', 'Error');
     }   
 }
 
+// Aplica as classes das animações de showdown
 const showdown = () => {
     const container = document.querySelector('.container') as HTMLElement;
     const arrow = document.querySelector('.arrow') as HTMLElement;
