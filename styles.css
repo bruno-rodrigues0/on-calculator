@@ -1,5 +1,14 @@
 @charset "utf-8";
 
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('./fonts/JETBRAINSMONO-REGULAR.TTF') format('truetype') ;
+}
+@font-face {
+    font-family: 'Calculator';
+    src: url('./fonts/CALCULATOR.TTF') format('truetype');
+}
+
 *{
     margin: 0;
     padding: 0;
